@@ -1,7 +1,7 @@
 <?php
-
-	session_start();
-	
+//user session
+//session starts
+session_start();
 	function message() {
 		if (isset($_SESSION["message"])) {
 			$output = "<div class=\"message\">";

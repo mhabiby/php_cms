@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<bridgedata version='1'>
+	<ratings version='1'>
+		<item key='delete_subject.php' rating='2'/>
+		<item key='data' rating='3'/>
+		<item key='admin.php' rating='5'/>
+	</ratings>
+</bridgedata>

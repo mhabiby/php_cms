@@ -1,6 +1,9 @@
 <?php
+include_once 'user-login.php';
+include_once 'functions.php';
+session_start();
 // Create connection
-$connection=mysqli_connect("127.0.0.1:3306","root","root3673root","cms_data");
+$connection=mysqli_connect("127.0.0.1:3306","my_db");
  
 // Check connection
 if (mysqli_connect_errno($connection))
@@ -13,4 +16,5 @@ if (mysqli_connect_errno($connection))
          " (" . mysqli_connect_errno() . ")"
     );
   }
-?>
+
+$user = new USER($connection);

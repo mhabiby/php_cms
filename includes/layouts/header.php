@@ -1,64 +1,81 @@
-<?php 
-	if (!isset($layout_context)) {
-		$layout_context = "public";
-	}
-?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<title>Admin Page</title>
-		<meta name="generator" content="Bootply" />
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
     <!--font awesome-->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="mertisMenu/metisMenu.min.css" rel="stylesheet">
     <!--jquery css-->
-    <link href="jquery/jquery-ui.css" rel="stylesheet">
-   
+  
+ 
+   <!--morris js -->
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="morrisjs/morris.min.js"></script>
+     
+     <!--metis menu-->
+     <link rel="stylesheet" href="metisMenu/dist/metisMenu.min.css">
+     <script src="metisMenu/dist//metisMenu.min.js"></script>
+    <!--datatables plug ins-->
+    <!--
+   <link rel="stylesheet" type="text/css" href="datatables/DataTables/media/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="datatables/DataTables/examples/resources/syntax/shCore.css">
+  <link rel="stylesheet" type="text/css" href="datatables/DataTables/examples/resources/demo.css">
+
+
+  <script type="text/javascript" language="javascript" src="datatables/DataTables/media/js/jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="datatables/DataTables/media/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" language="javascript" src="datatables/DataTables/examples/resources/syntax/shCore.js"></script>
+  <script type="text/javascript" language="javascript" src="datatables/DataTables/examples/resources/demo.js"></script>
+  -->
+  
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>  
+  
+  
+ 
+ 
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+
+    <!--jquery pufin -->
+
+<!--jquery pufin ./ -->
 		<link href="css/styles.css" rel="stylesheet">
+
+    
+
+    <script>
+
+
+$(document).ready(function() {
+  var lastIdx = null;
+  var table = $('#example').DataTable();
+  
+  $('#example tbody')
+    .on( 'mouseover', 'td', function () {
+      var colIdx = table.cell(this).index().column;
+
+      if ( colIdx !== lastIdx ) {
+        $( table.cells().nodes() ).removeClass( 'highlight' );
+        $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+      }
+    } )
+    .on( 'mouseleave', function () {
+      $( table.cells().nodes() ).removeClass( 'highlight' );
+    } );
+} );
+
+
+  </script>
 	</head>
 	<body>
-<!--header-->
-<div id="header">
-<header class="navbar navbar-default navbar-static-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand"><i class="fa fa-home fa-2x"></i>
-Med Corp <?php if ($layout_context == "admin") { echo "Admin"; } ?></a>
-    </div>
-    <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#"></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-inbox fa-2x"></i> Inbox
-</a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-calendar-o fa-2x"></i> Tasks
 
-</a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-cog fa-2x"></i> Setting
-</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
 </div><!--header ends-->
